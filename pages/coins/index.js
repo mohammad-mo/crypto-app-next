@@ -17,7 +17,6 @@ export async function getServerSideProps() {
 }
 
 const Coins = ({ data }) => {
-  // const { theme, setTheme } = useTheme('dark')
   const { resolvedTheme, setTheme } = useTheme()
 
   const [seacrh, setSeacrh] = useState('')
