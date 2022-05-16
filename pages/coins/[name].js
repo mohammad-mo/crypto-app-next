@@ -1,8 +1,10 @@
-import { useTheme } from 'next-themes'
-
+import Head from 'next/head'
 import Link from 'next/link'
 import Image from 'next/image'
 
+import { useTheme } from 'next-themes'
+
+// Components
 import Loading from '../../components/loading'
 
 export async function getServerSideProps(staticProps) {
@@ -28,6 +30,9 @@ const SingleCoin = ({ coinName }) => {
 
   return (
     <div className='py-5 px-2 sm:px-10 min-h-screen'>
+      <Head>
+        <title>{coinName.name}</title>
+      </Head>
       <div className='max-w-4xl mx-auto'>
         <div className='flex justify-between items-center space-x-3'>
           <Link href='/'>
