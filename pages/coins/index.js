@@ -4,8 +4,8 @@ import { useState } from 'react'
 import { useTheme } from 'next-themes'
 
 // Components
-import Loading from '../components/loading'
-import Coin from '../components/Coin'
+import Loading from '../../components/loading'
+import Coin from '../../components/coin'
 
 export async function getServerSideProps() {
   const res = await fetch(
@@ -16,7 +16,7 @@ export async function getServerSideProps() {
   return { props: { data } }
 }
 
-const Home = ({ data }) => {
+const Coins = ({ data }) => {
   const { theme, setTheme } = useTheme('dark')
 
   const [seacrh, setSeacrh] = useState('')
@@ -102,4 +102,4 @@ const Home = ({ data }) => {
   )
 }
 
-export default Home
+export default Coins

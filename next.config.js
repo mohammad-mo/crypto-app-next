@@ -4,6 +4,15 @@ const nextConfig = {
   images: {
     domains: ['assets.coingecko.com'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/coins',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig

@@ -35,7 +35,7 @@ const SingleCoin = ({ coinName }) => {
       </Head>
       <div className='max-w-4xl mx-auto'>
         <div className='flex justify-between items-center space-x-3'>
-          <Link href='/'>
+          <Link href='/coins'>
             <a passhref='true' className='btn btn-outline'>
               Back to Home
             </a>
