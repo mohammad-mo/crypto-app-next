@@ -14,4 +14,5 @@ yarn dev
 UI: Created with tailwind css and daisyUi.  
 API: [Coingecko](https://www.coingecko.com/)
 
-![Vite App - Google Chrome 4_30_2022 2_10_51 PM](https://user-images.githubusercontent.com/73068793/166100490-a8caad6a-4dce-458e-bff5-f600bba96714.png)
+![Crypto App - Google Chrome 5_16_2022 4_58_40 PM](https://user-images.githubusercontent.com/73068793/168592685-2ec236d3-e2c4-4ccc-9233-9e9abaae72c6.png)
+
