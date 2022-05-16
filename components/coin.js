@@ -10,13 +10,7 @@ const Coin = ({ rank, name, image, symbol, price, marketCap, priceChange }) => {
           <div className='flex items-center space-x-3'>
             <div className='avatar'>
               <div className='mask mask-squircle w-10 h-10'>
-                <Image
-                  src={image}
-                  alt={name}
-                  width={'45px'}
-                  height={'45px'}
-                  objectFit='inherit'
-                />
+                <Image src={image} alt={name} layout='fill' />
               </div>
             </div>
             <div>
