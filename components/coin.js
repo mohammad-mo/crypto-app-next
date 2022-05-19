@@ -9,8 +9,13 @@ const Coin = ({ rank, name, image, symbol, price, marketCap, priceChange }) => {
         <Link href={`coins/${name}`}>
           <div className='flex items-center space-x-3'>
             <div className='avatar'>
-              <div className='mask mask-squircle w-10 h-10'>
-                <Image src={image} alt={name} layout='fill' />
+              <div className='relative mask mask-squircle w-10 h-10'>
+                <Image
+                  src={image}
+                  alt={name}
+                  layout='fill'
+                  objectFit='contain'
+                />
               </div>
             </div>
             <div>
