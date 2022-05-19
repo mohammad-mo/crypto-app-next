@@ -22,7 +22,7 @@ const Coins = ({ data }) => {
 
   const [seacrh, setSeacrh] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
-  const [coinsPrePage, setCoinsPrePage] = useState(20)
+  const [coinsPrePage] = useState(20)
 
   const filteredCoins = data.filter((coin) =>
     coin.name.toLocaleLowerCase().includes(seacrh.toLocaleLowerCase()),
