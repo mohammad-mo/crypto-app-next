@@ -5,11 +5,12 @@ import { useTheme } from 'next-themes'
 
 // Components
 import Loading from '../../components/loading'
+import Pagination from '../../components/pagination'
 import Coin from '../../components/coin'
 
 export async function getServerSideProps() {
   const res = await fetch(
-    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=200&page=1&sparkline=false`,
+    `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false`,
   )
   const data = await res.json()
 
@@ -20,6 +21,8 @@ const Coins = ({ data }) => {
   const { resolvedTheme, setTheme } = useTheme()
 
   const [seacrh, setSeacrh] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  const [coinsPrePage, setCoinsPrePage] = useState(20)
 
   const filteredCoins = data.filter((coin) =>
     coin.name.toLocaleLowerCase().includes(seacrh.toLocaleLowerCase()),
@@ -28,6 +31,14 @@ const Coins = ({ data }) => {
   const changeHandler = (e) => {
     setSeacrh(e.target.value)
   }
+
+  // Pagination
+  const indexOfLastCoin = currentPage * coinsPrePage
+  const indexOfFirstCoin = indexOfLastCoin - coinsPrePage
+  const currentCoins = filteredCoins.slice(indexOfFirstCoin, indexOfLastCoin)
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   if (!data) return <Loading />
 
@@ -69,7 +80,7 @@ const Coins = ({ data }) => {
                 </tr>
               </thead>
               <tbody>
-                {filteredCoins.map((coin) => (
+                {currentCoins.map((coin) => (
                   <Coin
                     key={coin.id}
                     id={coin.id}
@@ -85,6 +96,12 @@ const Coins = ({ data }) => {
               </tbody>
             </table>
           </div>
+          <Pagination
+            coinsPrePage={coinsPrePage}
+            totalCoins={filteredCoins.length}
+            currentPage={currentPage}
+            paginate={paginate}
+          />
         </div>
       </div>
     </>
